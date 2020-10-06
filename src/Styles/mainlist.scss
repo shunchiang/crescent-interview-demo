@@ -1,0 +1,35 @@
+.recipes-list {
+  .edit-recipe-btn {
+    position: absolute;
+    background-color: #d24848;
+    border: none;
+    color: white;
+    padding: 0.8rem;
+    &:hover {
+      background-color: #d87171;
+      cursor: pointer;
+    }
+  }
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  .recipe-card {
+    display: flex;
+    width: 45%;
+    padding: 1rem;
+    .card-text {
+      padding-left: 1rem;
+      .card-title {
+        font-size: 1.5rem;
+      }
+      .card-description {
+        margin: 0.2rem 0;
+      }
+      button {
+        margin-top: 1rem;
+        padding: 5px 10px;
+        font-size: 1rem;
+      }
+    }
+  }
+}

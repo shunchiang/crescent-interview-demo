@@ -1,0 +1,20 @@
+.directions-container {
+  padding: 2rem;
+  .directions-title {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .row {
+    display: flex;
+    margin: 1.5rem 0;
+    .step-number {
+      margin-right: 2rem;
+    }
+  }
+  .optional {
+    margin-left: 1rem;
+    color: #d24848;
+  }
+}
