@@ -3,6 +3,8 @@ import Modal from "react-modal";
 import { useLocation } from "react-router-dom";
 import "../Styles/editmodal.scss";
 
+Modal.setAppElement("body");
+
 const editModalStyle = {
   content: {
     width: "70%",
