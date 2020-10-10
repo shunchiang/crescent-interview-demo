@@ -23,6 +23,7 @@ export default function FeaturedHero({
               className="hero-image"
               alt="featured-recipe"
               onLoad={handleLoad}
+              data-testid="hero-image"
             />
             {photoLoaded && (
               <div
@@ -39,6 +40,7 @@ export default function FeaturedHero({
                 {editMode && (
                   <button
                     className="edit-btn"
+                    data-testid="hero-edit-btn"
                     onClick={(e) => {
                       e.preventDefault();
                       openModal(recipe.title);

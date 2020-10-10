@@ -5,6 +5,7 @@ import FeaturedHero from "./FeaturedHero";
 import FeaturedIngredient from "./FeaturedIngredient";
 import Ingredients from "./Ingredients";
 import Directions from "./Directions";
+import ScrollToTop from "../utils/ScrollToTop";
 
 import "../Styles/recipepage.scss";
 import axios from "axios";
@@ -13,6 +14,7 @@ export default function RecipePage({ recipe, setRecipes, editMode }) {
   const [featuredIngredient, setFeaturedIngredient] = useState({});
   const [modalIsOpen, setIsOpen] = useState(false);
   const [editFormState, setEditFormState] = useState({});
+  ScrollToTop();
 
   const openModal = (item) => {
     setIsOpen({ ...modalIsOpen, [item]: true });
@@ -117,6 +119,7 @@ export default function RecipePage({ recipe, setRecipes, editMode }) {
               {editMode && (
                 <button
                   className="edit-btn"
+                  data-testid={`recipe-page-edit-btn`}
                   onClick={(e) => {
                     e.preventDefault();
                     openModal(recipe.title);

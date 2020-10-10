@@ -11,10 +11,16 @@ export default function Ingredients({ ingredients }) {
           {ingredients.map((ing, i) => {
             return (
               <div className="row" key={i}>
-                <p className="ing-name">{`${ing.name}: `}</p>
-                <p className="ing-amoung">{`${
-                  ing.amount ? ing.amount : "adjustable"
-                } ${ing.measurement}`}</p>
+                <p
+                  className="ing-name"
+                  data-testid={`ingrediant-${ing.name}`}
+                >{`${ing.name}: `}</p>
+                <p
+                  className="ing-amoung"
+                  data-testid={`ingrediant-amt${i}`}
+                >{`${ing.amount ? ing.amount : "adjustable"} ${
+                  ing.measurement
+                }`}</p>
               </div>
             );
           })}

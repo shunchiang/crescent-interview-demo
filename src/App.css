@@ -143,3 +143,9 @@ table {
   background-color: #d87171;
   cursor: pointer;
 }
+
+.not-found {
+  font-size: 3rem;
+  text-align: center;
+  margin: 45vh auto;
+}

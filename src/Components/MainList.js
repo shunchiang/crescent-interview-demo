@@ -98,6 +98,7 @@ export default function MainList({ recipes, setRecipes, editMode }) {
                   {editMode && (
                     <button
                       className="edit-recipe-btn"
+                      data-testid={`edit-recipe-btn-${i}`}
                       onClick={(e) => {
                         e.preventDefault();
                         openModal(recipe.title);
@@ -123,12 +124,25 @@ export default function MainList({ recipes, setRecipes, editMode }) {
                     src={`http://localhost:3001/${recipe.images.small}`}
                     alt={`${recipe.title} link card`}
                     id={recipe.uuid}
+                    data-testid={`card-img-${i}`}
                   />
                   <div className="card-text">
-                    <p className="card-title">{recipe.title}</p>
-                    <p className="card-description">{recipe.description}</p>
+                    <p className="card-title" data-testid={`card-title-${i}`}>
+                      {recipe.title}
+                    </p>
+                    <p
+                      className="card-description"
+                      data-testid={`card-description-${i}`}
+                    >
+                      {recipe.description}
+                    </p>
                     <Link to={`/recipes/${i + 1}`}>
-                      <button className="recipe-btn">Full Recipe</button>
+                      <button
+                        className="recipe-btn"
+                        data-testid={`link-btn-${i}`}
+                      >
+                        Full Recipe
+                      </button>
                     </Link>
                   </div>
                 </div>

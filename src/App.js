@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "./Components/Navbar";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import MainList from "./Components/MainList";
 import Footer from "./Components/Footer";
 import axios from "axios";
 import RecipePage from "./Components/RecipePage";
-import ScrolltoTop from "./utils/ScrollToTop";
 
 function App() {
   const [recipes, setRecipes] = useState([]);
@@ -17,19 +16,21 @@ function App() {
     setEditMode(!editMode);
   };
 
+  const NoMatchPage = () => <div className="not-found">404 Page Not Found</div>;
+
   useEffect(() => {
     axios
       .get("http://localhost:3001/recipes")
       .then((res) => {
         setRecipes(res.data);
-        console.log(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
   return (
     <>
-      <ScrolltoTop>
-        <Navbar toggleEdit={toggleEdit} editMode={editMode} />
+      <Navbar toggleEdit={toggleEdit} editMode={editMode} />
+
+      <Switch>
         <Route exact path="/">
           <MainList
             recipes={recipes}
@@ -48,8 +49,12 @@ function App() {
             </Route>
           );
         })}
-        <Footer />
-      </ScrolltoTop>
+
+        <Route>
+          <NoMatchPage />
+        </Route>
+      </Switch>
+      <Footer />
     </>
   );
 }
